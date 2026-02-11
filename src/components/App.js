@@ -14,14 +14,13 @@ const [tasks,setTasks] = useState([]);
   return (
     <div className='app'>
       <Todo setTasks={setTasks} />
-      {
-        tasks?.map((item, index) => {
-          return <div key={index}>
-            <p>{item}</p>
-            <button className='delete-btn' onClick={()=>deleteTask(item.id)}>Delete</button>
-          </div>
-        })
-      }
+       <ul>
+          {tasks.map((todo, index) => (
+            <li key={index}>{todo}
+              <button onClick={()=>deleteTask(todo.id)}>Delete</button>
+            </li>
+          ))}
+        </ul>
     </div>
   )
 }
